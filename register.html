@@ -245,7 +245,6 @@
                            required>
                     <div class="form-text text-muted mb-3">Use at least 8 characters with a mix of letters, numbers, and symbols.</div>
                     
-                    <button id="saveWallet" class="btn btn-register" disabled>
                         <i class="fas fa-save mr-2"></i>Save Wallet & Continue
                     </button>
                 </div>
@@ -254,6 +253,11 @@
         
         <div class="register-footer">
             Already have an account? <a href="login.html">Sign In</a>
+            <div class="mt-3">
+                <button id="devBypass" class="btn btn-sm btn-outline-warning">
+                    <i class="fas fa-tools mr-1"></i> Developer Bypass
+                </button>
+            </div>
         </div>
     </div>
 
@@ -268,32 +272,37 @@
     <script src="https://unpkg.com/@aeternity/aepp-sdk@13.0.1/dist/aepp-sdk.browser-script.13.0.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
     <script>
+        // Create a namespace for our app
+        window.ChaenApp = window.ChaenApp || {};
+        
         // Initialize Aeternity SDK
-        const { AeSdk, Node, MemoryAccount, CompilerHttp } = Ae;
-        
-        // Create a global client instance
-        let aeClient = null;
-        
-        async function initializeAeternity() {
+        document.addEventListener('DOMContentLoaded', async () => {
             try {
+                // Check if Ae is defined
+                if (typeof Ae === 'undefined') {
+                    throw new Error('Aeternity SDK not loaded');
+                }
+                
+                const { AeSdk, Node, CompilerHttp } = Ae;
+                
+                // Initialize the node
                 const node = new Node('https://testnet.aeternity.io');
-                aeClient = new AeSdk({
+                
+                // Create and store the client instance
+                window.ChaenApp.aeClient = new AeSdk({
                     nodes: [{ name: 'testnet', instance: node }],
                     onCompiler: new CompilerHttp('https://v7.compiler.stg.aepps.com'),
                 });
+                
                 console.log('Aeternity SDK initialized successfully');
-                return true;
+                
+                // Enable the generate wallet button
+                document.getElementById('generateWalletButton').disabled = false;
+                
             } catch (error) {
                 console.error('Failed to initialize Aeternity SDK:', error);
-                return false;
-            }
-        }
-        
-        // Initialize when document is ready
-        document.addEventListener('DOMContentLoaded', async () => {
-            const initialized = await initializeAeternity();
-            if (!initialized) {
-                alert('Failed to initialize wallet functionality. Please refresh the page.');
+                alert('Failed to initialize wallet service. Please check your internet connection and refresh the page.');
+                document.getElementById('generateWalletButton').disabled = true;
             }
         });
     </script>
@@ -312,12 +321,13 @@
                 $('#generateWalletButton').prop('disabled', true);
                 $('#creatingwallet').fadeIn();
                 
-                if (!aeClient) {
+                const client = window.ChaenApp.aeClient;
+                if (!client) {
                     throw new Error('Wallet service not ready. Please refresh the page and try again.');
                 }
                 
                 // Generate a new key pair
-                const keypair = await aeClient.generateKeyPair();
+                const keypair = await client.generateKeyPair();
                 
                 if (!keypair || !keypair.publicKey || !keypair.secretKey) {
                     throw new Error('Failed to generate wallet key pair');
@@ -451,6 +461,28 @@
             $('#passwordRegisterAccount').on('input', function() {
                 const isValid = $(this).val().length >= 8;
                 $('#saveWallet').prop('disabled', !isValid || !wallet);
+            });
+            
+            // Developer bypass
+            $('#devBypass').on('click', function() {
+                if (confirm('Warning: This will create a test wallet and bypass normal registration. Continue?')) {
+                    // Create a test wallet with known values
+                    const testWallet = {
+                        publicKey: 'ak_test_2a1j2Mk9wSmAotHhNcfvJ9w6b1K1XpDfX1J1XpDfX1J1XpDfX1J1XpDf',
+                        secretKey: 'test_private_key_do_not_use_in_production'
+                    };
+                    
+                    // Store in localStorage
+                    localStorage.setItem('aeWallet', JSON.stringify({
+                        publicKey: testWallet.publicKey,
+                        secretKey: testWallet.secretKey
+                    }));
+                    localStorage.setItem('aeWalletAddress', testWallet.publicKey);
+                    localStorage.setItem('authenticated', 'true');
+                    
+                    // Redirect to dashboard
+                    window.location.href = 'index.html';
+                }
             });
         });
     </script>
