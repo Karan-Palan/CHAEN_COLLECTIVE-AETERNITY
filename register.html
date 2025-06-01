@@ -4,106 +4,455 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Register for CHÆN COLLECTIVE - Your NFT Investment Club Platform">
+    <meta name="author" content="CHÆN COLLECTIVE">
+    <title>Register | CHÆN COLLECTIVE</title>
 
-    <title>CHÆN COLLECTIVE</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <!-- Custom styles -->
+    <!-- Core CSS -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <!-- Modern Theme -->
+    <link href="css/modern-theme.css" rel="stylesheet">
+    
     <style>
         body {
-            background-color: #0b0b0f !important;
+            background-color: #0f0f1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 1rem;
+            font-family: 'Nunito', sans-serif;
         }
-
-        .centered-blur-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-image: url('/img/rose-bg.png');
-            background-size: cover;
-            width: 600px;
-            height: 600px;
-            filter: blur(60px);
-            z-index: -1;
+        
+        .register-container {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            overflow: hidden;
         }
-
-        .centered-content {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
+        
+        .register-header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
-
-        .card {
-            background-color: transparent;
+        
+        .register-header h2 {
+            margin: 0 0 0.5rem;
+            font-weight: 700;
+        }
+        
+        .register-body {
+            padding: 2rem;
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.25);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .btn-register {
+            background: var(--primary);
+            color: white;
             border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-register:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-register:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .wallet-info {
+            display: none;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .wallet-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            word-break: break-all;
+        }
+        
+        .wallet-info-label {
+            font-weight: 600;
+            color: var(--text);
+            min-width: 120px;
+        }
+        
+        .wallet-info-value {
+            flex: 1;
+            font-family: 'Courier New', monospace;
+            color: var(--text-muted);
+            margin: 0 1rem;
+        }
+        
+        .copy-btn {
+            background: none;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(108, 99, 255, 0.1);
+        }
+        
+        .alert {
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .alert-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+        }
+        
+        .btn-faucet {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-faucet:hover {
+            background: rgba(108, 99, 255, 0.1);
+            text-decoration: none;
+        }
+        
+        .register-footer {
+            text-align: center;
+            padding: 1rem 2rem 2rem;
+            color: var(--text-muted);
+        }
+        
+        .register-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <div class="centered-blur-bg"></div>
-
-    <div class="centered-content">
-        <div class="p-5">
-            <div class="text-center">
-                <h1 class="h4 text-gray-200 mb-4">Create an Account</h1>
+    <div class="register-container">
+        <div class="register-header">
+            <h2>Create Your Account</h2>
+            <p class="mb-0">Join the CHÆN COLLECTIVE community</p>
+        </div>
+        
+        <div class="register-body">
+            <div class="alert alert-warning" id="creatingwallet" style="display: none;">
+                <i class="fas fa-spinner fa-spin mr-2"></i>Generating your wallet...
             </div>
-            <form class="user">
-                <div class="alert alert-warning" id="creatingwallet" style="display: none;">Creating wallet....</div>
-                <div class="form-group">
-                    <a id="generateWalletButton" class="btn btn-primary btn-user btn-block">
-                        Generate address
+            
+            <div id="walletGenerationSection">
+                <button id="generateWalletButton" class="btn btn-register">
+                    <i class="fas fa-wallet mr-2"></i>Generate New Wallet
+                </button>
+            </div>
+            
+            <div class="wallet-info" id="walletInfo">
+                <h5 class="text-center mb-3">Your Wallet Information</h5>
+                <p>
+                    <span class="wallet-info-label">Wallet Address</span>
+                    <span class="wallet-info-value" id="aeAccount"></span>
+                    <button class="copy-btn" data-clipboard-target="#aeAccount">
+                        <i class="far fa-copy"></i> Copy
+                    </button>
+                </p>
+                <p>
+                    <span class="wallet-info-label">Private Key</span>
+                    <span class="wallet-info-value" id="aePrivateKey"></span>
+                    <button class="copy-btn" data-clipboard-target="#aePrivateKey">
+                        <i class="far fa-copy"></i> Copy
+                    </button>
+                </p>
+                
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    <strong>Important:</strong> Save this information in a secure location. 
+                    The private key cannot be recovered if lost.
+                </div>
+                
+                <div class="mt-4">
+                    <a href="https://faucet.aepps.com/" target="_blank" class="btn-faucet">
+                        <i class="fas fa-faucet mr-2"></i> Get Testnet AE Tokens
                     </a>
                 </div>
-                <div class="form-group row" style="display: none;" id="new_address_generated">
-                    <h3 class="h4 text-gray-200 mb-4">Save this data and try to login with a new password</h1>
-                        
-                    <div class="col-sm-12 mb-6 mb-sm-0">
-                        <input type="hidden" id="hidden_new_wallet_address" />
-                        <input type="hidden" id="hidden_new_wallet_secret" />
-                        Address: <b><span id="aeAccount"></span></b> <br />
-                        Private Key: <b><span id="aePrivateKey"></span></b> <br />
-                    </div>
-                    <div class="col-sm-12 mb-6 mb-sm-0">
-                        Request some AE from the faucet: <a href="https://faucet.aepps.com/" target="_blank" class="btn btn-success btn-user btn-block" style="background-color: #666666; border-color:#666666">Faucet</a>
-                    </div>
-                    <div style="padding-bottom: 23px;"class="col-sm-12 mb-6 mb-sm-0">
-                        Create a password for your wallet: 
-                        <input type="password" id="passwordRegisterAccount" class="form-control" />
-                        <a id="saveWallet" class="btn btn-secondary btn-user btn-block" style="background-color: #666666;">Save wallet and login</a>
-                    </div>
-                </div>                
-                <hr>
-            </form>
-            <hr>
-            <div class="text-center">
-                <a class="small" href="login.html">Already have an account? Login!</a>
+                
+                <div class="mt-4">
+                    <label for="passwordRegisterAccount" class="form-label">
+                        Create a password to encrypt your wallet:
+                    </label>
+                    <input type="password" 
+                           id="passwordRegisterAccount" 
+                           class="form-control" 
+                           placeholder="Enter a strong password"
+                           minlength="8"
+                           required>
+                    <div class="form-text text-muted mb-3">Use at least 8 characters with a mix of letters, numbers, and symbols.</div>
+                    
+                    <button id="saveWallet" class="btn btn-register" disabled>
+                        <i class="fas fa-save mr-2"></i>Save Wallet & Continue
+                    </button>
+                </div>
             </div>
+        </div>
+        
+        <div class="register-footer">
+            Already have an account? <a href="login.html">Sign In</a>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/sb-admin-2.min.js"></script>
+    
+    <!-- External Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <script src="https://unpkg.com/@aeternity/aepp-sdk/dist/aepp-sdk.browser-script.js"></script>
+    <script src="https://unpkg.com/@aeternity/aepp-sdk@13.0.1/dist/aepp-sdk.browser-script.13.0.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script>
+        // Initialize Aeternity SDK
+        const { AeSdk, Node, MemoryAccount, CompilerHttp } = Ae;
+        
+        // Create a global client instance
+        let aeClient = null;
+        
+        async function initializeAeternity() {
+            try {
+                const node = new Node('https://testnet.aeternity.io');
+                aeClient = new AeSdk({
+                    nodes: [{ name: 'testnet', instance: node }],
+                    onCompiler: new CompilerHttp('https://v7.compiler.stg.aepps.com'),
+                });
+                console.log('Aeternity SDK initialized successfully');
+                return true;
+            } catch (error) {
+                console.error('Failed to initialize Aeternity SDK:', error);
+                return false;
+            }
+        }
+        
+        // Initialize when document is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            const initialized = await initializeAeternity();
+            if (!initialized) {
+                alert('Failed to initialize wallet functionality. Please refresh the page.');
+            }
+        });
+    </script>
+    
+    <!-- Application Scripts -->
     <script src="js/constants.js"></script>
     <script src="js/main.js"></script>
+    
     <script type="text/javascript">
-        var isAuthenticated = localStorage.getItem('aeWalletAddress');
-        if(isAuthenticated != null) {
-            location.href = 'index.html';
+        // Global variable to store the wallet
+        let wallet = null;
+        
+        // Function to generate a new wallet
+        async function generateNewWallet() {
+            try {
+                $('#generateWalletButton').prop('disabled', true);
+                $('#creatingwallet').fadeIn();
+                
+                if (!aeClient) {
+                    throw new Error('Wallet service not ready. Please refresh the page and try again.');
+                }
+                
+                // Generate a new key pair
+                const keypair = await aeClient.generateKeyPair();
+                
+                if (!keypair || !keypair.publicKey || !keypair.secretKey) {
+                    throw new Error('Failed to generate wallet key pair');
+                }
+                
+                // Store the wallet data
+                wallet = {
+                    publicKey: keypair.publicKey,
+                    secretKey: keypair.secretKey
+                };
+                
+                // Display the wallet information
+                $('#aeAccount').text(wallet.publicKey);
+                $('#aePrivateKey').text(wallet.secretKey);
+                
+                // Show the wallet info section
+                $('#walletInfo').fadeIn();
+                $('#creatingwallet').fadeOut();
+                
+                // Enable the save button if password is valid
+                if ($('#passwordRegisterAccount').val().length >= 8) {
+                    $('#saveWallet').prop('disabled', false);
+                }
+                
+                // Scroll to wallet info
+                $('html, body').animate({
+                    scrollTop: $('#walletInfo').offset().top - 20
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error generating wallet:', error);
+                alert('Failed to generate wallet. Please try again. ' + (error.message || ''));
+                $('#generateWalletButton').prop('disabled', false);
+                $('#creatingwallet').fadeOut();
+            }
         }
+        
+        // Function to copy text to clipboard
+        async function copyToClipboard(text, button) {
+            try {
+                await navigator.clipboard.writeText(text);
+                const originalHtml = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHtml;
+                    button.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                alert('Failed to copy to clipboard. Please try again.');
+            }
+        }
+        
+        // Function to save the wallet
+        async function saveWallet() {
+            const password = $('#passwordRegisterAccount').val();
+            
+            if (!password || password.length < 8) {
+                alert('Please enter a password with at least 8 characters');
+                return;
+            }
+            
+            if (!wallet) {
+                alert('No wallet generated. Please generate a wallet first.');
+                return;
+            }
+            
+            try {
+                const saveButton = $('#saveWallet');
+                saveButton.html('<i class="fas fa-spinner fa-spin"></i> Saving...').prop('disabled', true);
+                
+                // Encrypt and save the wallet
+                const encryptedKey = CryptoJS.AES.encrypt(
+                    JSON.stringify(wallet), 
+                    password
+                ).toString();
+                
+                // Save to localStorage
+                localStorage.setItem('aeWallet', encryptedKey);
+                localStorage.setItem('aeWalletAddress', wallet.publicKey);
+                localStorage.setItem('aeWalletSecret', encryptedKey); // For backward compatibility
+                
+                // Set authentication flag
+                localStorage.setItem('authenticated', 'true');
+                
+                // Redirect to dashboard
+                window.location.href = 'index.html';
+                
+            } catch (error) {
+                console.error('Error saving wallet:', error);
+                alert('Failed to save wallet. Please try again. ' + (error.message || ''));
+                saveButton.html('<i class="fas fa-save mr-2"></i>Save Wallet & Continue').prop('disabled', false);
+            }
+        }
+        
+        // Document ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Redirect if already authenticated
+            var isAuthenticated = localStorage.getItem('aeWalletAddress');
+            if(isAuthenticated) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Initialize clipboard.js as fallback
+            try {
+                new ClipboardJS('.copy-btn');
+            } catch (e) {
+                console.warn('ClipboardJS failed to initialize, using fallback method');
+            }
+            
+            // Handle copy buttons
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-clipboard-target').substring(1);
+                    const textToCopy = document.getElementById(targetId).textContent;
+                    copyToClipboard(textToCopy, this);
+                });
+            });
+            
+            // Wallet generation
+            $('#generateWalletButton').on('click', generateNewWallet);
+            
+            // Save wallet
+            $('#saveWallet').on('click', saveWallet);
+            
+            // Enable save button when password is valid
+            $('#passwordRegisterAccount').on('input', function() {
+                const isValid = $(this).val().length >= 8;
+                $('#saveWallet').prop('disabled', !isValid || !wallet);
+            });
+        });
     </script>
 </body>
 </html>

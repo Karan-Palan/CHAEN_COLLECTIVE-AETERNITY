@@ -4,91 +4,254 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Login to CHÆN COLLECTIVE - Your NFT Investment Club Platform">
+    <meta name="author" content="CHÆN COLLECTIVE">
+    <title>Login | CHÆN COLLECTIVE</title>
 
-    <title>CHÆN COLLECTIVE</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <!-- Custom styles -->
+    <!-- Core CSS -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <!-- Modern Theme -->
+    <link href="css/modern-theme.css" rel="stylesheet">
+    
     <style>
         body {
-            background-color: #0b0b0f !important;
+            background-color: #0f0f1a;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
         }
-
-        .centered-blur-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-image: url('/img/rose-bg.png');
-            background-size: cover;
-            width: 600px;
-            height: 600px;
-            filter: blur(60px);
-            z-index: -1;
+        
+        .login-container {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px;
+            overflow: hidden;
         }
-
-        .centered-login {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
+        
+        .login-header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
-
-        .card {
-            background-color: transparent;
+        
+        .login-header h2 {
+            margin: 0 0 0.5rem;
+            font-weight: 700;
+        }
+        
+        .login-body {
+            padding: 2rem;
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.25);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .btn-login {
+            background: var(--primary);
             border: none;
+            padding: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
         }
-
-        .form-control-user {
-            border-radius: 10px;
+        
+        .btn-login:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .login-footer {
+            text-align: center;
+            padding: 1rem 2rem 2rem;
+            color: var(--text-muted);
+        }
+        
+        .login-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            margin-bottom: 1rem;
+            display: none;
+            font-size: 0.875rem;
         }
     </style>
 </head>
 <body>
-    <div class="centered-blur-bg"></div>
-
-    <div class="centered-login">
-        <div class="p-5">
-            <div class="text-center">
-                <h1 class="h4 text-gray-200 mb-4">Login to CHÆN COLLECTIVE</h1>
-            </div>
-            <form class="user">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p class="mb-0">Login to your CHÆN COLLECTIVE account</p>
+        </div>
+        
+        <div class="login-body">
+            <form id="loginForm">
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-user" id="pvKeyValue" aria-describedby="emailHelp" placeholder="Enter your seed code">
-                    <input type="password" class="form-control form-control-user" id="pvKeyNewPasswordValue" aria-describedby="emailHelp" placeholder="Enter a new password">
+                    <label for="pvKeyValue" class="form-label">Seed Code</label>
+                    <input type="text" class="form-control" id="pvKeyValue" 
+                           placeholder="Enter your seed code" required>
                 </div>
-                <a id="generateWalletPrivKeyButton" class="btn btn-primary btn-user btn-block">Login with your private key</a>
-                <p class="invalid-feedback" id="errorLogin"></p>
+                <div class="form-group">
+                    <label for="pvKeyNewPasswordValue" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="pvKeyNewPasswordValue" 
+                           placeholder="Enter your password" required>
+                </div>
+                <div class="error-message" id="errorLogin"></div>
+                <button type="submit" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Login
+                </button>
             </form>
-            <hr>
-            <div class="text-center">
-                <a class="small" color="#808080" href="register.html">Create an Account!</a>
-            </div>
+        </div>
+        
+        <div class="login-footer">
+            Don't have an account? <a href="register.html">Create an Account</a>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/sb-admin-2.min.js"></script>
+    
+    <!-- External Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <script src="https://unpkg.com/@aeternity/aepp-sdk/dist/aepp-sdk.browser-script.js"></script>
+    
+    <!-- Application Scripts -->
     <script src="js/constants.js"></script>
     <script src="js/main.js"></script>
+    
     <script type="text/javascript">
-        var isAuthenticated = localStorage.getItem('aeWalletAddress');
-        if(isAuthenticated != null) {
-            location.href = 'index.html';
+        // Function to handle login with private key and password
+        async function loginWithPrivateKey(seedCode, password) {
+            try {
+                // Show loading state
+                const loginButton = $('#loginForm button[type="submit"]');
+                const originalButtonText = loginButton.html();
+                loginButton.html('<i class="fas fa-spinner fa-spin"></i> Logging in...').prop('disabled', true);
+                
+                // Try to decrypt the wallet
+                const client = await Ae.Aepp();
+                let wallet;
+                
+                // Check if this is a seed phrase or private key
+                if (seedCode.startsWith('ak_')) {
+                    // This is a public address, try to get from localStorage
+                    const encryptedWallet = localStorage.getItem('aeWallet');
+                    if (!encryptedWallet) {
+                        throw new Error('No wallet found for this address');
+                    }
+                    
+                    // Try to decrypt with the provided password
+                    try {
+                        const decrypted = CryptoJS.AES.decrypt(encryptedWallet, password);
+                        wallet = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+                        
+                        if (!wallet || !wallet.publicKey) {
+                            throw new Error('Invalid password or corrupted wallet data');
+                        }
+                        
+                        // Verify the public key matches
+                        if (wallet.publicKey !== seedCode) {
+                            throw new Error('Invalid credentials');
+                        }
+                    } catch (e) {
+                        console.error('Decryption error:', e);
+                        throw new Error('Invalid password');
+                    }
+                } else {
+                    // Assume this is a private key
+                    try {
+                        wallet = await client.importAccount(seedCode);
+                    } catch (e) {
+                        console.error('Private key import error:', e);
+                        throw new Error('Invalid private key');
+                    }
+                }
+                
+                // Store wallet data in localStorage
+                localStorage.setItem('aeWalletAddress', wallet.publicKey);
+                
+                // Redirect to dashboard
+                window.location.href = 'index.html';
+                
+            } catch (error) {
+                console.error('Login error:', error);
+                $('#errorLogin').text(error.message || 'Login failed. Please check your credentials and try again.').fadeIn();
+                loginButton.html(originalButtonText).prop('disabled', false);
+            }
         }
+        
+        // Document ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Redirect if already authenticated
+            var isAuthenticated = localStorage.getItem('aeWalletAddress');
+            if(isAuthenticated) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Form submission handler
+            $('#loginForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                const seedCode = $('#pvKeyValue').val().trim();
+                const password = $('#pvKeyNewPasswordValue').val();
+                
+                if (!seedCode || !password) {
+                    $('#errorLogin').text('Please fill in all fields').fadeIn();
+                    return false;
+                }
+                
+                // Call the login function
+                loginWithPrivateKey(seedCode, password);
+                return false;
+            });
+            
+            // Clear error when typing
+            $('input').on('input', function() {
+                $('#errorLogin').fadeOut();
+            });
+            
+            // Focus the first input field
+            $('#pvKeyValue').focus();
+        });
     </script>
 </body>
 </html>
