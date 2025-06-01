@@ -1,35 +1,41 @@
-# CHAEN COLLECTIVE
+# CHAEN COLLECTIVE (Archived)
 
-The following ppt link gives a deeper insight to our vision about our project-
-#### https://docs.google.com/presentation/d/1uHjizUV9KIZ05V1sDMkvnGQzADEvVfeYUR1pQ2_S6Y0/edit?usp=sharing
+> **Note**: This project is now archived as the Aeternity JavaScript SDK has some updates, and I won't be updating the codebase.
 
-This video gives a brief on what the peoject does: 
-#### https://youtu.be/6U4IYyiSqLI
+## Project Status: Archived
 
-CHAEN COLLECTIVE empowers users in the efficient management of investment clubs, opening up access to participation in investment funds. Operating on a decentralized and agile platform, it offers various functionalities for individuals involved in these investment clubs:
+This repository has been archived as the Aeternity JavaScript SDK is no longer maintained. The codebase remains available for historical reference and educational purposes, but no further updates or maintenance will be provided.
 
-## Features :
+## Original Project Overview
 
-### Club Creation:
+CHAEN COLLECTIVE was designed to empower users in the efficient management of investment clubs on the Aeternity blockchain. The platform provided various functionalities for collaborative investment management in a decentralized manner.
 
-Effortless Establishment: Users can seamlessly create investment clubs by defining a name, associating it with the account of the creator (owner).
+### Key Features (Historical)
 
-### Membership Management:
+- **Club Creation**: Users could create investment clubs with custom parameters
+- **Membership Management**: Join/leave functionality for club members
+- **Pool Contributions**: Members could contribute AE coins to a shared fund
+- **Proposal System**: Members could create and vote on investment proposals
+- **Decentralized Governance**: Transparent voting and fund management
 
-Inclusive Participation: Available to all aeternity blockchain account holders, individuals can effortlessly join or leave existing investment clubs with just a few clicks.
+## Why Archived?
 
-### Contributions to the Pool:
+This project was built using the Aeternity JavaScript SDK, which is no longer maintained. Without active SDK support, the application cannot function as intended on the Aeternity blockchain.
 
-Collaborative Funding: Members of a club can contribute to a common fund (pool) by depositing AE coins, fostering a shared financial resource for investment proposals.
+## Alternative Solutions
 
-### Proposal Creation and Voting:
+If you're interested in building a similar application, you might want to explore:
 
-Informed Decision-Making: Club members who have contributed to the pool can propose investments, providing details such as description, amount (within pool limits), and recipient. Every member has the authority to approve or reject proposals, with each member having a single vote.
+1. Other blockchain platforms with active development communities
+2. Updated SDKs and tooling for decentralized application development
+3. Modern frameworks for building Web3 applications
 
-### Proposal Execution:
+## License
 
-Transparent Operations: Proposal owners, having secured approval surpassing rejection, can execute the proposal. This leads to the transfer of the designated amount to the specified recipient. Owners also retain the option to close proposals, whether due to cancellation, publication errors, or to prevent fund disbursement.
+This code is provided as-is under the original license. Please refer to the LICENSE file for more information.
 
-In essence, CHAEN COLLECTIVE forms a dynamic ecosystem fostering financial collaboration, enabling users to effectively manage investment activities while embracing decentralization and flexibility.
+---
+
+*Last updated: June 2025*
 
 
