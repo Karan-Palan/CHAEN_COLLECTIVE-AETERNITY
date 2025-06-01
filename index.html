@@ -2,53 +2,509 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="CHÆN COLLECTIVE" content="">
-    <meta name="SPARTANS" content="">
+    <meta name="description" content="CHÆN COLLECTIVE - Exclusive NFT Community">
+    <meta name="author" content="CHÆN COLLECTIVE">
+    <meta name="keywords" content="NFT, Blockchain, Community, CHÆN, Digital Art">
 
-    <title>CHÆN COLLECTIVE</title>
+    <title>CHÆN COLLECTIVE | Dashboard</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Font Awesome -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Core CSS -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    
+    <!-- Custom Theme -->
+    <link href="css/modern-theme.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: var(--background);
+            color: var(--text);
+        }
+        
+        #content-wrapper {
+            background-color: var(--background);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: var(--card-bg) !important;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .topbar {
+            height: 70px;
+        }
+    </style>
 </head>
 
-<body id="page-top" style="background-color: #333; color: #FFFFFF;">
-
-   
+<body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #0b0b0f; color: #FFFFFF;">
-
+        <ul class="navbar-nav sidebar sidebar-dark" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                
-                <div class="sidebar-brand-text mx-3">CHÆN COLLECTIVE</div>
+            <a class="sidebar-brand" href="index.html">
+                <div class="sidebar-brand-text">CHÆN COLLECTIVE</div>
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider">
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Items -->
             <li class="nav-item active">
-                <a style="font-size: 20px;" class="nav-link" href="index.html">
+                <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
             <li class="nav-item">
-                <a style="font-size: 20px;" class="nav-link" href="joinclub.html">
-                    <i class="fas fa-fw fa-file-image-o"></i>
+                <a class="nav-link" href="joinclub.html">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Join Club</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="createclub.html">
+                    <i class="fas fa-fw fa-plus-circle"></i>
+                    <span>Create Club</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="proposal.html">
+                    <i class="fas fa-fw fa-file-contract"></i>
+                    <span>Proposals</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="members.html">
+                    <i class="fas fa-fw fa-user-friends"></i>
+                    <span>Members</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="club.html">
+                    <i class="fas fa-fw fa-chess-queen"></i>
+                    <span>My Club</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome, User</span>
+                                <img class="img-profile rounded-circle"
+                                    src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-100">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-primary shadow-sm">
+                            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+                        </a>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Earnings (Monthly) Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Members</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-100">1,234</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Active Proposals</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-100">12</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-file-contract fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Pending Approvals</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-100">5</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Clubs Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Clubs
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-100">24</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-chess-queen fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Activity Overview</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">View Options:</div>
+                                            <a class="dropdown-item" href="#">This Week</a>
+                                            <a class="dropdown-item" href="#">This Month</a>
+                                            <a class="dropdown-item" href="#">This Year</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Export Data</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">View Options:</div>
+                                            <a class="dropdown-item" href="#">This Week</a>
+                                            <a class="dropdown-item" href="#">This Month</a>
+                                            <a class="dropdown-item" href="#">This Year</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Export Data</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Direct
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Social
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Referral
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Recent Activity -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Recent Activity</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-user-plus text-white"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <div class="small text-gray-500">Today, 10:45 AM</div>
+                                                <span class="font-weight-bold">5 new members joined</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="icon-circle bg-success">
+                                                <i class="fas fa-file-contract text-white"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <div class="small text-gray-500">Yesterday, 2:30 PM</div>
+                                                <span class="font-weight-bold">New proposal created: "Community Fund Allocation"</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <div class="small text-gray-500">Dec 12, 12:04 PM</div>
+                                                <span class="font-weight-bold">Voting period ending soon for "New Feature Development"</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="icon-circle bg-info">
+                                                <i class="fas fa-chess-queen text-white"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <div class="small text-gray-500">Dec 7, 09:30 AM</div>
+                                                <span class="font-weight-bold">New club "Crypto Enthusiasts" created</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <a class="btn btn-sm btn-primary" href="#">View All Activity</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Events -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Upcoming Events</h6>
+                                    <a href="#" class="btn btn-sm btn-primary">+ Add Event</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-primary text-white rounded p-2 text-center mr-3" style="min-width: 50px;">
+                                                <div class="font-weight-bold">15</div>
+                                                <div class="small">JAN</div>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-1">Community Meetup</h6>
+                                                <p class="small text-muted mb-1">Virtual Meeting • 6:00 PM - 8:00 PM</p>
+                                                <span class="badge badge-primary">All Members</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-success text-white rounded p-2 text-center mr-3" style="min-width: 50px;">
+                                                <div class="font-weight-bold">22</div>
+                                                <div class="small">JAN</div>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-1">AMA with Project Lead</h6>
+                                                <p class="small text-muted mb-1">Discord • 7:00 PM - 9:00 PM</p>
+                                                <span class="badge badge-success">Public</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-info text-white rounded p-2 text-center mr-3" style="min-width: 50px;">
+                                                <div class="font-weight-bold">30</div>
+                                                <div class="small">JAN</div>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-1">Voting Period Ends</h6>
+                                                <p class="small text-muted mb-1">Proposal #45: "New Feature Development"</p>
+                                                <span class="badge badge-warning">Voting</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <a class="btn btn-sm btn-outline-primary" href="#">View All Events</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; CHÆN COLLECTIVE 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
                     <span>Available clubs</span></a>
             </li>
             <li class="nav-item">
